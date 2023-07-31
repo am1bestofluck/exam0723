@@ -22,11 +22,12 @@ public class animalClass {
     public String getName() {
         return name;
     }
-    public animalClass() {
-        this.breed= null;
-        this.area = null;
-        this.food = null;
-        this.name = null;
+    public animalClass(String area, String breed, String food, String name) {
+        this.breed= breed;
+        this.area = area;
+        this.food = food;
+        this.name = name;
+    }
     }
 
     public void sit(){
