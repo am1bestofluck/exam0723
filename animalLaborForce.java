@@ -23,12 +23,16 @@ public class animalLaborForce extends animalClass {
 
     @Override
     public void sit() {
-        System.out.println(super.getBreed() + " " + super.getName() + "сидит отсюда и до обеда.");
+        System.out.println(super.getBreed() + " " + super.getName() + " сидит отсюда и до обеда.");
 
     }
 
     @Override
     public void stay() {
         System.out.println(super.getBreed() + " " + super.getName() + ",позёвывая, делает свои дела.");
+    }
+    public static void main(String[] args) {
+        animalLaborForce  bucik = new animalLaborForce("cell", "horse", "wheat", "bucefal", 80);
+        bucik.sit(); bucik.stay(); bucik.serve();
     }
 }
