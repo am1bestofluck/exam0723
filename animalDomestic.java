@@ -36,5 +36,23 @@ public class animalDomestic extends animalClass {
         barsik.sit();
         barsik.stay();
         barsik.serve();
+        System.out.println( barsik);
+    }
+    @Override
+    public String toString(){
+        return String.format("%s Was born in %s",super.toString(),String.valueOf(this.getBirthYear()));
+    }
+    @Override
+    public boolean equals(Object other_animalDomestic){
+        if( !(other_animalDomestic instanceof animalDomestic)){
+            return false;
+        }
+        if (!(super.equals((animalClass)other_animalDomestic))){
+            return false;
+        }
+        if (this.birthYear != ((animalDomestic)other_animalDomestic).getBirthYear()){
+            return false;
+        }
+        return true;
     }
 }

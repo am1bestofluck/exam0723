@@ -11,6 +11,8 @@ class Cat extends animalDomestic {
     public void serve(){
         System.out.println(String.join(" ",super.getBreed(), super.getName(),"перевернул миску с водой и попытался закопать еду"));
     }
+    @Override
+    public boolean equals(Object )
     
 }
 class Dog extends animalDomestic {

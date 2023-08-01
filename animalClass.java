@@ -45,4 +45,29 @@ public class animalClass {
         throw new UnsupportedOperationException("переписать в дочернем классе");
     }
 
+    @Override
+    public boolean equals(Object other_animal){
+        if ( !(other_animal instanceof animalClass)){
+            return false;
+        }
+        if (((animalClass)other_animal).getBreed() != this.breed ||
+            ((animalClass)other_animal).getName() != this.name ||
+            ((animalClass)other_animal).getArea() != this.area ||
+            ((animalClass)other_animal).getFood() != this.food){
+            return false;
+        }
+        if (((animalClass)other_animal).getName() != this.name){
+            return false;
+        }
+        if (((animalClass)other_animal).getName() != this.name){
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString(){
+        return String.format("%s %s, eats %s, lives in %s.",this.breed,this.name,this.food,this.area);
+    }
+
 }
