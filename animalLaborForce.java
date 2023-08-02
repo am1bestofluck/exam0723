@@ -40,4 +40,20 @@ public class animalLaborForce extends animalClass {
         bucik.sit(); bucik.stay(); bucik.serve();
         System.out.println(bucik);
     }
+    @Override
+    public boolean equals(Object other_animaLaborForce){
+        if( !(other_animaLaborForce instanceof animalLaborForce)){
+            return false;
+        }
+        if (!this.carryWeight.equals(((animalLaborForce)other_animaLaborForce).getCarryWeight())){
+            return false;
+        }
+        if (!(super.equals((animalClass)other_animaLaborForce))){
+            return false;
+        }
+        
+        
+        return true;
+    }
+
 }

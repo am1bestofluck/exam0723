@@ -50,16 +50,10 @@ public class animalClass {
         if ( !(other_animal instanceof animalClass)){
             return false;
         }
-        if (((animalClass)other_animal).getBreed() != this.breed ||
-            ((animalClass)other_animal).getName() != this.name ||
-            ((animalClass)other_animal).getArea() != this.area ||
-            ((animalClass)other_animal).getFood() != this.food){
-            return false;
-        }
-        if (((animalClass)other_animal).getName() != this.name){
-            return false;
-        }
-        if (((animalClass)other_animal).getName() != this.name){
+        if (!((animalClass)other_animal).getBreed().equals(this.breed) ||
+        !((animalClass)other_animal).getName().equals(this.name) ||//name
+        !((animalClass)other_animal).getArea().equals(this.area) ||//area
+        !((animalClass)other_animal).getFood().equals(this.food)){//food
             return false;
         }
         return true;

@@ -50,7 +50,7 @@ public class animalDomestic extends animalClass {
         if (!(super.equals((animalClass)other_animalDomestic))){
             return false;
         }
-        if (this.birthYear != ((animalDomestic)other_animalDomestic).getBirthYear()){
+        if (!this.birthYear.equals(((animalDomestic)other_animalDomestic).getBirthYear())){
             return false;
         }
         return true;
