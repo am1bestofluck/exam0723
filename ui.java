@@ -15,6 +15,12 @@ public class ui {
                         "0: back to main menu"
 
             );
+    String menu_pets = String.join("\n",
+            "1: pets list",
+                        "2: add new pet",
+                        "0: back to main menu"
+
+            );
     Commands_list base;
 
     private Scanner main_scanner = new Scanner( System.in);
@@ -37,7 +43,8 @@ public ui() {
             temp = main_scanner.nextLine();
             switch (temp) {
                 case "1":
-                    System.out.println("add pet ...");
+                    System.out.println("add pet menu");
+                    repl_pets();
                     break;
                 case "2":
                     repl_commands();
@@ -52,7 +59,42 @@ public ui() {
         }
     }
     catch (Exception e){
-        System.out.println(e);
+        System.out.println(e.getLocalizedMessage());
+        repl_main();
+    }
+
+    }
+    private void repl_pets(){
+        String temp = null;
+        String PetsServiceLine = null;
+        try{
+
+        while ( true) {
+            System.out.println(menu_pets);
+            
+            temp = main_scanner.nextLine();
+            System.out.println();
+            switch (temp) {
+                case "1":
+                    this.base.yellPets();
+                    break;
+                case "2":
+                    System.out.println("Input new pet description");
+                    PetsServiceLine = main_scanner.nextLine();
+                    this.base.addPet(PetsServiceLine);
+                    break;
+                case "0":
+                    repl_main();
+                    break;
+                default:
+                    System.out.println("Can't parse. Repeat?");
+                    break;
+            }
+        }
+    }
+    catch (Exception e){
+        System.out.println(e.getLocalizedMessage());
+        repl_pets();
     }
 
     }
@@ -84,7 +126,8 @@ public ui() {
         }
     }
     catch (Exception e){
-        System.out.println(e);
+        System.out.println(e.getLocalizedMessage());
+        repl_commands();
     }
 
     }

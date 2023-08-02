@@ -11,8 +11,14 @@ class Cat extends animalDomestic {
     public void serve(){
         System.out.println(String.join(" ",super.getBreed(), super.getName(),"перевернул миску с водой и попытался закопать еду"));
     }
+
     @Override
-    public boolean equals(Object )
+    public boolean equals(Object otherCat){
+        if (!(otherCat instanceof Cat)){
+            return false;
+        }
+        return super.equals(otherCat);
+    }
     
 }
 class Dog extends animalDomestic {
@@ -22,6 +28,13 @@ class Dog extends animalDomestic {
     @Override
     public void sit(){
         System.out.println(String.join(" ",super.getBreed(), super.getName(),"сидит как лорд седьмых кровей."));
+    }
+    @Override
+    public boolean equals(Object otherDog){
+        if (!(otherDog instanceof Dog)){
+            return false;
+        }
+        return super.equals(otherDog);
     }
 }
 
@@ -33,6 +46,13 @@ class Hamster extends animalDomestic{
     @Override
     public void stay(){
         System.out.println(String.join(" ", super.getBreed(), super.getName(), "чувствует себя как дома."));
+    }
+    @Override
+    public boolean equals(Object otherHamster){
+        if (!(otherHamster instanceof Hamster)){
+            return false;
+        }
+        return super.equals(otherHamster);
     }
     
 }
