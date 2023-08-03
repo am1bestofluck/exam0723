@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashMap;
-
+import java.lang.NullPointerException;
 import javax.naming.directory.InvalidAttributeValueException;
 
 /**
@@ -77,7 +77,13 @@ public class Commands_list {
                 throw new InvalidAttributeValueException("Такой питомец уже есть");
             }            
         }
-
+        try(Counter a = new Counter()){
+            a.increment();
+        }
+        catch (Exception e){
+            System.out.println( e.getLocalizedMessage());
+            System.out.println(e.getStackTrace());
+        }
         this.pets.get(splitline[0]).add(temp_pet);
         System.out.println("success!");
         
