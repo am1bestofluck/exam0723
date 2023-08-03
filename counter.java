@@ -15,6 +15,7 @@ public class Counter implements AutoCloseable {
     private File source =  new File("source.txt");
     Scanner reader;
     PrintWriter writer;
+    private boolean power_on = false;
 
 
 
@@ -39,6 +40,7 @@ public class Counter implements AutoCloseable {
         catch (Exception e ){
             System.out.println( e);
         }
+        this.power_on = true;
     }
 
     public void  add (){
@@ -46,21 +48,23 @@ public class Counter implements AutoCloseable {
     }
     
     public void increment(){
+        if (this.power_on == false){
+            throw new RoutineViolationException("После закрытия никто ничего не добавляет");
+
+        }
         this.value++;
         System.out.println( String.format("Текущее значение счётчика: %d ",this.value));
         this.writer.println(this.value);
-        
-    }
-    public void  yell(){
         
     }
 
     @Override
     public void close() throws Exception {
         if (this.reader!= null){
-            
+
         this.reader.close();}
         this.writer.close();
+        this.power_on = false;
         
     }
     public static void main(String[] args) {
